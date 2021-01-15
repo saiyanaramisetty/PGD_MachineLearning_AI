@@ -1,0 +1,152 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- restaurant_search
+- telling_budget
+- affirm
+- greet
+- telling_location_cuisine
+- telling_email
+- deny
+- telling_location
+- telling_cuisine
+- goodbye
+entities:
+- affirm
+- budget
+- cuisine
+- email
+- location
+slots:
+  budget:
+    type: text
+  cuisine:
+    type: text
+  email:
+    type: text
+  location:
+    type: text
+  location_match:
+    type: categorical
+    values:
+    - zero
+    - one
+    - __other__
+  results_found:
+    type: categorical
+    values:
+    - zero
+    - one
+    - __other__
+responses:
+  utter_affirm_cuisine:
+  - text: Ahh, Thanks for sharing the cuisine. You have got a good taste :D
+  - text: Thanks mate, That's my favorite too!
+  utter_affirm_location:
+  - text: Thanks for sharing the location.
+  utter_anythingelse:
+  - text: Is there anything else that I can help you with?
+  utter_ask_budget:
+  - buttons:
+    - payload: pocket friendly budget
+      title: Pocket-Friendly (< Rs.300)
+    - payload: moderate budget
+      title: Moderate (Rs.300 - 700)
+    - payload: high budget
+      title: Costliest (> Rs.700)
+    text: What price range are you looking at? (Average budget for two people)
+  utter_ask_cuisine:
+  - buttons:
+    - payload: chinese
+      title: Chinese
+    - payload: mexican
+      title: Mexican
+    - payload: italian
+      title: Italian
+    - payload: american
+      title: American
+    - payload: south indian
+      title: South Indian
+    - payload: north indian
+      title: North Indian
+    text: What kind of cuisine would you prefer?
+  utter_ask_emailaddress:
+  - text: Can you provide the email id to which I should sent it to?
+  utter_ask_emailtosend:
+  - buttons:
+    - payload: yes
+      title: Yes
+    - payload: no
+      title: No
+    text: Would you like to have all the details of the top restaurants sent to your
+      email?
+  utter_ask_howcanhelp:
+  - text: How can I help you?
+  utter_ask_location:
+  - text: Can you please help me with your location?
+  - text: In which city are you looking for restaurants?
+  utter_default:
+  - text: Sorry, Didn’t understand. Please say again
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_email_nosent:
+  - text: Okay. Bon Appetit!
+  utter_email_sent:
+  - text: Please check your inbox! Happy to help you.
+  utter_get_email:
+  - text: Please mention the email address that you want me to send the information
+      to
+  utter_goodbye:
+  - text: Goodbye. Have a good day!
+  - text: Bye have a nice day!
+  - text: Bye
+  - text: Goodbye. See you soon!
+  - text: Bye-bye
+  - text: Happy meal. Bye bye!
+  utter_greet:
+  - text: Hey, Hope you are doing great! How may I help you today?
+  - text: Hey! How may I help you?
+  - text: Hi, How can I help you today?
+  utter_locationnotfound:
+  - text: Sorry, I couldn't find any such location. Could you please say it again?
+  utter_searching:
+  - text: Thanks for the details, please give me few seconds to fetch you some good
+      rating restaurants for your budget and preferred location.
+  utter_slot_values:
+  - buttons:
+    - payload: proceed
+      title: Yes, proceed
+    - payload: change details
+      title: No, I want to change my details
+    text: "Great! I can help you find restaurants based on your preferences. Please\
+      \ confirm if you'd like me to proceed:\n - Location:- {location}\n - Cuisine:-\
+      \ {cuisine}\n - Budget:- {budget}."
+  utter_sorry_dontoperate:
+  - text: I am very sorry to tell you that we don't operate in this city. Could you
+      please specify some other location?
+actions:
+- action_affirm_location
+- action_get_restaurants
+- action_restart
+- action_send_email
+- action_slot_reset
+- utter_affirm_cuisine
+- utter_affirm_location
+- utter_anythingelse
+- utter_ask_budget
+- utter_ask_cuisine
+- utter_ask_emailaddress
+- utter_ask_emailtosend
+- utter_ask_howcanhelp
+- utter_ask_location
+- utter_default
+- utter_did_that_help
+- utter_email_nosent
+- utter_email_sent
+- utter_goodbye
+- utter_greet
+- utter_locationnotfound
+- utter_searching
+- utter_slot_values
+- utter_sorry_dontoperate
